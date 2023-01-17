@@ -20,10 +20,11 @@ export const List = styled.ul`
   flex-wrap: wrap;
   gap: 3rem;
   justify-content: center;
+  margin: 2rem 0;
 `;
 
 export const ListItem = styled.li`
-  width: 11rem;
+  width: 10rem;
   height: 100%;
   text-align: center;
 `;
