@@ -2,38 +2,38 @@ import React, { useState, useEffect, useMemo } from "react";
 import Layout from "../components/layout/layout";
 import * as S from "../styles/home";
 import Pagination from "../components/pagination/pagination";
-import queryString from "query-string";
 
 export default function Home() {
   const [info, setInfo] = useState({});
   const [offset, setOffset] = useState(0);
-
-  const api = "https://kitsu.io/api/edge/";
+  const [text, setText] = useState("");
   const LIMIT = 16;
+
+  let api = `https://kitsu.io/api/edge/anime?page[limit]=${LIMIT}&page[offset]=${offset}`;
 
   useEffect(() => {
     setInfo({});
 
-    fetch(`${api}anime?page[limit]=${LIMIT}&page[offset]=${offset}`)
+    if (text !== "") {
+      api = `https://kitsu.io/api/edge/anime?filter[text]=${text}&page[limit]=${LIMIT}&page[offset]=${offset}`;
+    }
+
+    fetch(api)
       .then((response) => response.json())
       .then((response) => {
         setInfo(response);
       });
-  }, [offset]);
-
-  // const currentPageData = useMemo(() => {
-  //   const firstPageindex = (currentPage - 1) * PageSize;
-  //   const lastPageIndex = firstPageIndex + pageSize;
-
-  //   return info.slice(firstPageindex, lastPageIndex);
-  // }, [currentPage]);
+  }, [offset, text]);
 
   return (
     <Layout>
       <S.Container>
         <S.ContentBox>
+          <input type='text' onChange={(e) => setText(e.target.value)} />
+
           {info.data && (
             <S.List className='animes-list'>
+              {console.log(text)}
               {info.data.map((anime) => (
                 <S.ListItem key={anime.id}>
                   <S.PreviewImage
