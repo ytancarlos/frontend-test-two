@@ -18,7 +18,8 @@ export const NavBar = styled.ul`
   list-style: none;
 
   .active {
-    background-color: blue;
+    background-color: #2a9d8f;
+    opacity: 0.8;
     color: snow;
   }
 `;

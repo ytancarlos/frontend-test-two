@@ -39,8 +39,6 @@ const Pagination = ({ limit, totalCount, offset, setOffset }) => {
           disabled={currentPage === pages}>
           {">"}
         </S.NavButton>
-        {/* {console.log(currentPage)} */}
-        {console.log(offset)}
       </li>
     </S.NavBar>
   );

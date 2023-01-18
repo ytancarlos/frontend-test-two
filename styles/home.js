@@ -14,6 +14,23 @@ export const ContentBox = styled.div`
   width: 100%;
 `;
 
+export const Header = styled.div`
+  width: 100%;
+  height: 10vh;
+  min-height: 5.5rem;
+
+  input {
+    width: 50%;
+
+    border-radius: 0.7rem;
+    border: none;
+    margin-left: 45%;
+    margin-top: 1.4rem;
+
+    padding: 0.8rem;
+  }
+`;
+
 export const List = styled.ul`
   list-style: none;
   display: flex;
@@ -31,5 +48,5 @@ export const ListItem = styled.li`
 
 export const PreviewImage = styled.img`
   border-radius: 0.2rem;
-  box-shadow: 0.1rem 0.1rem 0.5rem black;
+  box-shadow: 0.05rem 0.05rem 0.15rem snow;
 `;
